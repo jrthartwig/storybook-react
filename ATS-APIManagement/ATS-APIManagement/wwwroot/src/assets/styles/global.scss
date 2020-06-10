@@ -1,0 +1,63 @@
+@import "../../assets/styles/mixins.scss";
+
+$blue-dark: #002a4e;
+$blue-light: #ccdbeb;
+$blue-pale: #e6edf5;
+$blue-paler: #e6f2ff;
+$off-white: #f2f6fa;
+$lightest-grey: #f8f9fa;
+$lighter-grey: #e9ecef;
+$light-grey: #ced4da;
+$dark-grey: #495057;
+
+$muted: #6c757d;
+$danger:#A12330;
+
+$link-color: #004a99;
+$link-color-hover: #0056b3;
+
+$text-color-body: #282629;
+$background-linear-gradient: linear-gradient(to bottom, $off-white 60%, $blue-light 100%);
+
+$font-family: "Calibri", "Helvetica Neue", "Myriad Pro Light", "Arial", sans-serif;
+$box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.15);
+
+$transition-duration:.3s;
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-family;
+    font-size: 1.6rem;
+}
+
+.psi-main {
+    height: 100vh;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    max-width:160rem;
+    margin:0 auto;
+}
+
+.link {
+    color: $link-color;
+    text-decoration: none;
+    font-weight:600;
+    transition-duration:$transition-duration;
+
+    @include states {
+        text-decoration: underline;
+        color: $link-color-hover;
+    }
+}
+
+.error {
+    display: block;
+    color: $danger;
+}
+
+.hidden {
+    display: none !important;
+}

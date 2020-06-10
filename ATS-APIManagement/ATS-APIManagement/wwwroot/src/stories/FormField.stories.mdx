@@ -1,0 +1,105 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import FormField from '../components/FormControls/FormField/FormField';
+
+export const validCheck = (value) => { return value !== "$" }
+
+export const data = [
+    { label: "option 1", value: "1" },
+    { label: "option 2", value: "2" },
+    { label: "option 3", value: "3" }
+        ]
+
+<Meta title="FormField" component={FormField} />
+
+# FormField Component 
+
+The purpose of this component is to account for various types of user input (i.e. text, dropdowns). It handles common tasks like validation, instructional text, and error messages. This component should be used when a feature requires input from the user.    
+
+## FormField with Existing Value
+
+FormField component implemented with a value through setting the `value` property. 
+
+<Preview withSource="open"> 
+    <Story name="FormField with a Value">
+        <FormField value="This is a value" />
+    </Story>
+</Preview>
+
+## FormField with Label
+
+FormField component implemented with a label through setting the `label` property to a string. 
+
+<Preview withSource="open"> 
+    <Story name="FormField with a Label">
+        <FormField label="label" />
+    </Story>
+</Preview>
+
+## FormField with a Character Limit 
+
+FormField component implemented with a character limit by setting the `characterLimit` property to an integer. 
+
+<Preview withSource="open"> 
+    <Story name="FormField with Character limit">
+        <FormField characterLimit={20} /> 
+    </Story>
+</Preview>
+
+## FormField as a Select 
+
+FormField component implemented as a select with options through setting the `selectOptions` property to an array of options. 
+
+<Preview withSource="open"> 
+    <Story name="FormField with Select Options">
+        <FormField label="Select Options" selectOptions={["option 1", "option 2", "and option 3"]}  />
+    </Story>
+</Preview>
+
+## FormField as a list of Checkbox Options 
+
+FormField component implemented as a list of options that can be checked. This implementation is configured through setting the `checkboxOptions` property to an array of objects. Each object must contain a label property with a string as the value and a value property with that property's value as an integer. 
+
+`data = [
+    { label: "option 1", value: "1" },
+    { label: "option 2", value: "2" },
+    { label: "option 3", value: "3" }
+        ]`
+
+<Preview withSource="open"> 
+    <Story name="FormField with Checkbox Options">
+        <FormField checkboxOptions={data} value={["1","2","3"]} />
+    </Story>
+</Preview>
+
+## FormField with Placeholder Text 
+
+FormField compenent implemented with placeholder text through setting the `placeholder` property to a string. 
+
+<Preview withSource="open"> 
+    <Story name="FormField with placeholder text">
+        <FormField placeholder="this is a placeholder" />
+    </Story>
+</Preview>
+
+## FormField with Instructional Text 
+
+FormField component implemented with instructional text through setting the `instructionalText` property to a sring. 
+
+<Preview withSource="open"> 
+    <Story name="FormField with instructional text">
+        <FormField instructionalText="Here are some instructions" /> 
+    </Story>
+</Preview>
+
+## FormField with an Error Message 
+
+When a FormField implementation requires validation and an error message, the `isValid` property is set to a validation function. The error message that is displayed to the user is configured by setting the `error` property to a string. 
+
+<Preview withSource="open"> 
+    <Story name="Formfield with an error">
+        <FormField isValid={validCheck} error="Cannot be $"/>
+    </Story>
+</Preview> 
+
+
